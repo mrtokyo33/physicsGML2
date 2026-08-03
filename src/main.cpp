@@ -1,7 +1,6 @@
 #include <SDL2/SDL.h>
 #include <cmath>
 #include <iostream>
-#include <vector>
 
 #include "constants.hpp"
 #include "drawing.hpp"
@@ -27,14 +26,11 @@ int main(int argc, char* argv[]) {
 
     int BigRadius = 100;
     Vector3D Center{WindowWidth / 2.0, WindowHeight / 2.0, 0.0};
-    Vector3D ParticleVelocity{200.0, 0.0, 0.0};
+    Vector3D ParticleVelocity{50.0, 0.0, 0.0};
 
     const double tangential_speed = ParticleVelocity.magnitude();
     const double angular_speed = tangential_speed / static_cast<double>(BigRadius);
     double orbit_angle = 0.0;
-
-    std::vector<Vector3D> trail;
-    const size_t max_trail_points = 48;
 
     Particle particle{
         Center + Vector3D{static_cast<double>(BigRadius), 0.0, 0.0},
